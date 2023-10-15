@@ -1,14 +1,13 @@
-import * as THREE from 'three';
 import { scene, renderer } from './src/scene';
-import cube from './src/geometries/cube';
 import camera from './src/camera';
-import addStaticLight from './src/light'
+import { loadLevel, loopLevel } from './src/level'
 
-function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.02;
-    cube.rotation.y += 0.02;
+function loop(cd) {
+    requestAnimationFrame(loop);
     renderer.render(scene, camera);
+    if (typeof cd === 'function') cd()
+    //loopLevel()
 }
-animate();
-addStaticLight()
+
+loop(loopLevel)
+loadLevel()
