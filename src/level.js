@@ -3,6 +3,7 @@ import { scene } from './scene'
 import { light, directionalLight } from './light';
 import camera from './camera';
 import terrain from './geometries/terrain';
+import { keyController } from './utils'
 
 function loadLevel() {
     scene.add(cube);
@@ -12,7 +13,10 @@ function loadLevel() {
 }
 
 function loopLevel() {
-    cube.position.x += 0.01
+    if (keyController.isKeyPressed('w')) cube.position.y += 1
+    if (keyController.isKeyPressed('s')) cube.position.y -= 1
+    if (keyController.isKeyPressed('a')) cube.position.x -= 1
+    if (keyController.isKeyPressed('d')) cube.position.x += 1
     //camera.lookAt(cube.position)
 }
 
