@@ -4,7 +4,6 @@ import { light, directionalLight } from './light';
 import camera from './camera';
 import plane from './geometries/plane';
 import { keyController } from './utils'
-import { Vector3 } from 'three';
 
 function loadLevel() {
     scene.add(cube);
